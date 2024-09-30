@@ -1,0 +1,15 @@
+.joinButton {
+  border-color: rgb(255,0,125)
+}
+
+.joinInput {
+  height: 50px;
+  width:10rem;
+  border-color: rgb(108, 46, 167);
+  border-radius: 5px;
+}
+
+.joinInput:active {
+  border-color: rgb(108, 46, 167)
+  
+}
