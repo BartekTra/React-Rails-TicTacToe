@@ -9,19 +9,10 @@ function Games() {
   const [guid, setGuid] = useState("");
   const [realuuid, setRealuuid] = useState("");
   const [gamestate, setGamestate] = useState([]);
-
-  // Hooki muszą być wywołane bez warunków
   const { data: data2, loading, error } = useQuery(FETCH_GAMESTATE, {
     variables: { id: id },
   });
-  
-
   const [handleMoveQuery] = useMutation(HANDLE_MOVE); // Hook useMutation musi być zawsze wywołany w tej samej kolejności
-
-
-  // Ładowanie i obsługa błędów dla zapytania
-
-  // Ustawienie stanu gry na podstawie danych
   
     useEffect(() => {
       
@@ -48,6 +39,7 @@ function Games() {
     };
 
     ws.onclose = () => {
+      console.log("Closed the connection");
       ws.close();
     };
 
@@ -69,9 +61,7 @@ function Games() {
             }),
           })
         );
-        
       }
-      ws.close();
     };
   }, [id, gamestate]);
 
